@@ -12,7 +12,7 @@ const authorize = async host => {
     mode: 'no-cors',
   }
   try {
-    await window.fetch(`http://${host}:12070/axis-cgi/usergroup.cgi`, fetchOptions)
+    await window.fetch(`http://${host}:12106/axis-cgi/usergroup.cgi`, fetchOptions)
   } catch (err) {
     console.error(err)
   }
@@ -40,8 +40,8 @@ const play = (host, encoding = 'h264') => {
 
   // Setup a new pipeline
   const pipeline = new Pipeline({
-    ws: { uri: `ws://${host}:12070/rtsp-over-websocket` },
-    rtsp: { uri: `rtsp://${host}:32070/axis-media/media.amp?videocodec=${encoding}` },
+    ws: { uri: `ws://${host}:12106/rtsp-over-websocket` },
+    rtsp: { uri: `rtsp://${host}:32106/axis-media/media.amp?videocodec=${encoding}` },
     mediaElement,
   })
   pipeline.ready.then(() => {
